@@ -21,24 +21,11 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
 
-        log.info("configuring swagger");
-
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.fleetlize.notificationmanager"))
                 .paths(PathSelectors.any())
-                .build()
-                .apiInfo(apiInfo());
+                .build();
     }
 
-    private ApiInfo apiInfo() {
-        return new ApiInfo(
-                "Fleetlize Rest Api",
-                "Api to manager a small store",
-                "API TOS",
-                "Terms of service", new Contact("Cezar Cruz", "http://cezarcruz.com.br", "****"),
-                "",
-                "",
-                Collections.emptyList() );
-    }
 }
